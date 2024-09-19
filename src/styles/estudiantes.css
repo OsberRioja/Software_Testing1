@@ -1,0 +1,98 @@
+#StudentsDiv
+{
+    display:none;
+    flex-direction: column;
+    top: 120px;
+    width: 100%;
+    position: absolute;
+    left: -22%;
+    z-index: 10;
+}
+.StudentButton
+{
+    color:white;
+    position: relative;
+    top: 10px;
+    width: 25%;
+    text-align: center;
+    padding: 15px 0;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    cursor: pointer;
+    background: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: hidden;
+}
+
+.StudentButton span{
+    background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+
+.StudentButton:hover span{
+    width: 100%; 
+}
+
+.StudentButton:hover{
+    border: none;
+}
+
+#enrollCourse
+{
+    width: 33%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 0;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.HomeworkContainer
+{
+    padding-top: 1em;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    width: 45%;
+}
+
+.HomeworkBtn
+{
+    color: white;
+    display: inline-block;
+    margin-left: 3rem;
+    background: #ff2d75;
+    border-radius: 40px;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 15px 30px;
+}
+.HomeworkBtn:hover
+{
+    opacity: 75%;
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+.HomeworkText
+{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+.HomeworkText:hover
+{
+    color:#009688;
+    opacity: 75%;
+    cursor: pointer;
+}
+#logOutButton{
+    display: none;
+}

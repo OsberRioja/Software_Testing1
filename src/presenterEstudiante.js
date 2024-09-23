@@ -245,7 +245,6 @@ function InitializeHoursFeedback(input,button){
 function loadDateContainer(homeworksArray,date)
 {
   let dateContainer=document.createElement('div');
-  dateContainer=document.createElement('div');
   let dateTittleDiv = document.createElement('h3');
   addPropsToElement(dateContainer,{"id":"divFecha"+date})
   addPropsToElement(dateTittleDiv,{"id":"divFechaTitle" + date}, date + "==>")

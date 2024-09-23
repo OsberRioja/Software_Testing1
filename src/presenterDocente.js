@@ -131,20 +131,19 @@ function getCourseHomeworksFromAllStudents()
   return new Set([...answerSet, ...OtherCourses])
 }
   
-function loadListByDates()
-{  
-  homeworkList.innerHTML=""
+function loadListByDates() {  
+  homeworkList.innerHTML = "";
 
-  let HomeworkDatesObj=coursesController.getAllHomeworksByDate(getCourseHomeworksFromAllStudents())
-  let dates=Object.keys(HomeworkDatesObj) 
-  dates.sort();
-  for(let dateIndex=0;dateIndex<dates.length;dateIndex++)
-  {
-    let date=dates[dateIndex]
-    addElementsToFather(homeworkList,loadDateContainer(HomeworkDatesObj[date],date))
+  let HomeworkDatesObj = coursesController.getAllHomeworksByDate(getCourseHomeworksFromAllStudents());
+  let dates = Object.keys(HomeworkDatesObj);
+  dates.sort((a, b) => a.localeCompare(b));
+
+  for (let dateIndex = 0; dateIndex < dates.length; dateIndex++) {
+    let date = dates[dateIndex];
+    addElementsToFather(homeworkList, loadDateContainer(HomeworkDatesObj[date], date));
   }
-
 }
+
 function loadDateContainer(homeworksArray,date)
 {
   let dateContainer=document.createElement('div');

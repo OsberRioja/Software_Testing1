@@ -2,5 +2,5 @@ projectKey=calidad-sonar-1
 serverUrl=http://localhost:9000
 serverVersion=10.6.0.92116
 dashboardUrl=http://localhost:9000/dashboard?id=calidad-sonar-1
-ceTaskId=47614950-a25a-452c-b4d0-9384d9830054
-ceTaskUrl=http://localhost:9000/api/ce/task?id=47614950-a25a-452c-b4d0-9384d9830054
+ceTaskId=58846704-0e1a-4a17-ba5f-49c6da087dd1
+ceTaskUrl=http://localhost:9000/api/ce/task?id=58846704-0e1a-4a17-ba5f-49c6da087dd1

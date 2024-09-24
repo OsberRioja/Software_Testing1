@@ -68,19 +68,6 @@ class CoursesController extends  Courses{
         })
         return this.getdaysWithHomework(HomeworksArray);   
     }
-
-    getStudentHomeworksByDate(coursesEnlisted)
-    {
-        let CourseNames= getCoursesFromAllStudents()
-        let HomeworksArray=[]
-        CourseNames.forEach((CourseName)=>{
-            if(coursesEnlisted.has(CourseName))
-            {
-                HomeworksArray=HomeworksArray.concat(this.getCourseHomeworks(CourseName))
-            }
-        })
-        return this.getdaysWithHomework(HomeworksArray);   
-    }
     
     getStudentHomeworkByClass(course){
         let assigmentArray=[];

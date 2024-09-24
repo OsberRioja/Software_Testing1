@@ -90,7 +90,7 @@ function loadListByDates()
   removeAllChildNodes(homeworkDays);
   let HomeworkDatesObj=coursesController.getStudentHomeworksByDate(student.getCoursesStudent())
   let dates=Object.keys(HomeworkDatesObj) 
-  dates.sort();
+  dates.sort((a, b) => a.localeCompare(b));
   reloadCourseBox();
   for(let dateIndex=0;dateIndex<dates.length;dateIndex++)
   {
@@ -110,7 +110,7 @@ function loadSelectedCourse(course){
   removeAllChildNodes(homeworkDays);
   let HomeworkDatesObj=coursesController.getStudentHomeworkByClass(course)
   let dates=Object.keys(HomeworkDatesObj) 
-  dates.sort();
+  dates.sort((a, b) => a.localeCompare(b));
   for(let dateIndex=0;dateIndex<dates.length;dateIndex++)
   {
     let date=dates[dateIndex]
@@ -218,7 +218,6 @@ function sendFeedBackListener(hmwkId){
   });
 }
 function sendStresslevelListener(element,hmwkId){
-  let stressInpt= document.querySelector("#stressinput"+hmwkId);
   element.addEventListener('click', function handleClick(event){
     element.disabled=true;
     alert("Gracias por dejarnos saber.");

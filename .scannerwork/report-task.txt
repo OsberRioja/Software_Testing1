@@ -1,6 +1,6 @@
-projectKey=Software_Testing
+projectKey=SoftwareTestingone
 serverUrl=http://localhost:9000
 serverVersion=10.6.0.92116
-dashboardUrl=http://localhost:9000/dashboard?id=Software_Testing
-ceTaskId=d0f831a7-2e40-48b9-97f0-534c1334e8d4
-ceTaskUrl=http://localhost:9000/api/ce/task?id=d0f831a7-2e40-48b9-97f0-534c1334e8d4
+dashboardUrl=http://localhost:9000/dashboard?id=SoftwareTestingone
+ceTaskId=d3f6fef5-b59d-40f7-97b7-aee077a47eed
+ceTaskUrl=http://localhost:9000/api/ce/task?id=d3f6fef5-b59d-40f7-97b7-aee077a47eed

@@ -2,5 +2,5 @@ projectKey=proyecto-sonar-2
 serverUrl=http://localhost:9000
 serverVersion=10.6.0.92116
 dashboardUrl=http://localhost:9000/dashboard?id=proyecto-sonar-2
-ceTaskId=308424a7-f021-4aca-ba99-2094f74ae192
-ceTaskUrl=http://localhost:9000/api/ce/task?id=308424a7-f021-4aca-ba99-2094f74ae192
+ceTaskId=b2c66b03-1164-4751-9865-3e7e3de52d1f
+ceTaskUrl=http://localhost:9000/api/ce/task?id=b2c66b03-1164-4751-9865-3e7e3de52d1f

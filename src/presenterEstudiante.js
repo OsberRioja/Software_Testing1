@@ -103,18 +103,19 @@ courseBox.addEventListener('change', (event) => {
   else
     loadListByDates();
 });
-function loadSelectedCourse(course){
-  homeworkDays.innerHTML=""
+
+function loadSelectedCourse(course) {
+  homeworkDays.innerHTML = "";
   removeAllChildNodes(homeworkDays);
-  let HomeworkDatesObj=coursesController.getStudentHomeworkByClass(course)
-  let dates=Object.keys(HomeworkDatesObj) 
+  let HomeworkDatesObj = coursesController.getStudentHomeworkByClass(course);
+  let dates = Object.keys(HomeworkDatesObj);
   dates.sort((a, b) => a.localeCompare(b));
-  for(let dateIndex=0;dateIndex<dates.length;dateIndex++)
-  {
-    let date=dates[dateIndex]
-    addElementsToFather(homeworkDays,loadDateContainer(HomeworkDatesObj[date],date))
+  
+  for (const date of dates) {
+    addElementsToFather(homeworkDays, loadDateContainer(HomeworkDatesObj[date], date));
   }
 }
+
 function addListenerForfurtherinfo(homworkDiv,homework){
   homworkDiv.addEventListener('click', function handleClick(event){
     showFurtherInformation(homework);

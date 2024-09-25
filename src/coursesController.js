@@ -28,12 +28,12 @@ class CoursesController extends Courses {
     
             if (createdHmwk != errorCode.CourseNotFound) {
                 this.homeworkId++;
-                return { status: errorCode.OK };
+                return errorCode.OK
             } else {
-                return { status: errorCode.CourseNotFound };
+                return errorCode.CourseNotFound
             }
         }
-        return { status: status };
+        return status
     }
     
 

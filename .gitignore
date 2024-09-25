@@ -4,3 +4,5 @@ dist
 .parcel-cache
 /coverage
 .DS_Store
+sonar.properties
+.scannerwork/

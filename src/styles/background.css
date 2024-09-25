@@ -91,17 +91,6 @@ body{
         transition-property: all;
     transition-timing-function: line;
 }
-/*
-#login
-{
-    margin-top: 20px;
-    width: 40%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 15px 0;
-    font-weight: bold;
-    padding-left: 10px;
-}*/
 
 #Login{
     position: absolute;

@@ -2,5 +2,5 @@ projectKey=Software_Testing
 serverUrl=http://localhost:9000
 serverVersion=10.6.0.92116
 dashboardUrl=http://localhost:9000/dashboard?id=Software_Testing
-ceTaskId=cbbd045f-9db2-41f4-8eda-e174b72a8158
-ceTaskUrl=http://localhost:9000/api/ce/task?id=cbbd045f-9db2-41f4-8eda-e174b72a8158
+ceTaskId=bb9cfeec-d13a-45f3-a4f7-73df397abd72
+ceTaskUrl=http://localhost:9000/api/ce/task?id=bb9cfeec-d13a-45f3-a4f7-73df397abd72

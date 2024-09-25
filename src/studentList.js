@@ -1,5 +1,5 @@
 import Student from "./estudiante.js";
-import {combineDicts} from "./predefinedStudents.js"
+import { combineDicts } from "./predefinedStudents.js";
 
 let studentPassword = "123"
 
@@ -31,14 +31,10 @@ function getStudents()
     return studentDict
 }
 
-function studentLogIn(name, password)
-{
-    if(name in studentDict && password == studentPassword)
-    {
-        return true
-    }
-    return false
+function studentLogIn(name, password) {
+    return (name in studentDict && password == studentPassword);
 }
+
 
 function seeIfStudentExist(name)
 {
@@ -113,4 +109,4 @@ function getStudentsInCourse(courseToCheck)
     return students
 }
 
-export {getStudentsFromJson,studentLogIn, seeIfStudentExist, getStudents, setStudentName, getStudentName, getCoursesFromAllStudents, getCoursesFromAllStudentsWithinACourse, getStudentsInCourse}
+export { getCoursesFromAllStudents, getCoursesFromAllStudentsWithinACourse, getStudentName, getStudents, getStudentsFromJson, getStudentsInCourse, seeIfStudentExist, setStudentName, studentLogIn };

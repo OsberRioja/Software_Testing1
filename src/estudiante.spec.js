@@ -1,4 +1,3 @@
-//import { expect } from "chai";
 import Student from "./estudiante.js"
 
 describe("Marcado de tareas", () => {

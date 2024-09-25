@@ -1,8 +1,5 @@
 import {getStudentsFromJson, studentLogIn, seeIfStudentExist, getStudents, setStudentName, getStudentName, 
     getCoursesFromAllStudents, getCoursesFromAllStudentsWithinACourse, getStudentsInCourse} from "./studentList.js"
-import Student from "./estudiante.js"
-
-
 
 describe("Se crean estudiantes predefinidos", () => {
     it("se ve que existe el primer estudiante", () => {

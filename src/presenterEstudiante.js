@@ -1,7 +1,5 @@
-import {seeIfStudentExist, getStudentName} from "./studentList.js"
 import { CoursesControllerSingleton } from "./coursesController";
-import Homework from "./homework.js";
-import { transform } from "@babel/core";
+import { getStudentName, seeIfStudentExist } from "./studentList.js";
 let coursesController=CoursesControllerSingleton.getInstance()
 
 const hoursToConsiderDayOverloaded=3
@@ -105,18 +103,19 @@ courseBox.addEventListener('change', (event) => {
   else
     loadListByDates();
 });
-function loadSelectedCourse(course){
-  homeworkDays.innerHTML=""
+
+function loadSelectedCourse(course) {
+  homeworkDays.innerHTML = "";
   removeAllChildNodes(homeworkDays);
-  let HomeworkDatesObj=coursesController.getStudentHomeworkByClass(course)
-  let dates=Object.keys(HomeworkDatesObj) 
+  let HomeworkDatesObj = coursesController.getStudentHomeworkByClass(course);
+  let dates = Object.keys(HomeworkDatesObj);
   dates.sort((a, b) => a.localeCompare(b));
-  for(let dateIndex=0;dateIndex<dates.length;dateIndex++)
-  {
-    let date=dates[dateIndex]
-    addElementsToFather(homeworkDays,loadDateContainer(HomeworkDatesObj[date],date))
+  
+  for (const date of dates) {
+    addElementsToFather(homeworkDays, loadDateContainer(HomeworkDatesObj[date], date));
   }
 }
+
 function addListenerForfurtherinfo(homworkDiv,homework){
   homworkDiv.addEventListener('click', function handleClick(event){
     showFurtherInformation(homework);
@@ -126,13 +125,12 @@ function addListenerForfurtherinfo(homworkDiv,homework){
 function showFurtherInformation(homework){
  actualHomework.innerHTML= `Homework : ${homework.name} started on ${homework.dateInit} and you must complete it by ${homework.dateFin}`+", Horas necesarias:  "+homework.hoursNeeded+", Horas por dia:  "+homework.getHoursPerDay();
 }
-function addElementsToFather(Father,...children)
-{
-  for(let index=0;index<children.length;index++)
-  {
-    Father.appendChild(children[index])
+function addElementsToFather(Father, ...children) {
+  for (const child of children) {
+    Father.appendChild(child);
   }
 }
+
 function addPropsToElement(element,props,...innerHTML)
 {
   if(innerHTML[0]!=undefined)
@@ -241,21 +239,26 @@ function InitializeHoursFeedback(input,button){
   button.style.display="none";
 
 }
-function loadDateContainer(homeworksArray,date)
-{
-  let dateContainer=document.createElement('div');
-  let dateTittleDiv = document.createElement('h3');
-  addPropsToElement(dateContainer,{"id":"divFecha"+date})
-  addPropsToElement(dateTittleDiv,{"id":"divFechaTitle" + date}, date + "==>")
-  addElementsToFather(dateContainer,dateTittleDiv)
-  for(let i=0; i<homeworksArray.length; i++)
-  {
-    addElementsToFather(dateContainer, createHomeworkItem(homeworksArray[i]))
+function loadDateContainer(homeworksArray, date) {
+  let dateContainer = document.createElement('div');
+  let dateTitleDiv = document.createElement('h3');
+  
+  addPropsToElement(dateContainer, { "id": "divFecha" + date });
+  addPropsToElement(dateTitleDiv, { "id": "divFechaTitle" + date }, date + "==>");
+  
+  addElementsToFather(dateContainer, dateTitleDiv);
+  
+  for (const homework of homeworksArray) {
+    addElementsToFather(dateContainer, createHomeworkItem(homework));
   }
-  if(coursesController.getHoursToComplete(homeworksArray)>hoursToConsiderDayOverloaded)
-    dateTittleDiv.style.color="red";
-  return dateContainer
+  
+  if (coursesController.getHoursToComplete(homeworksArray) > hoursToConsiderDayOverloaded) {
+    dateTitleDiv.style.color = "red";
+  }
+  
+  return dateContainer;
 }
+
 
 function createHomeworkItem(homework)
 {

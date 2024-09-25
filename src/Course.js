@@ -1,4 +1,3 @@
-import { deleteHomework } from "./Courses";
 import * as errorCode from './errorCodes'
 
 const HomeworkNotFound=2;

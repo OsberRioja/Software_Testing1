@@ -1,7 +1,5 @@
-import {seeIfStudentExist, getStudentName} from "./studentList.js"
 import { CoursesControllerSingleton } from "./coursesController";
-import Homework from "./homework.js";
-import { transform } from "@babel/core";
+import { getStudentName, seeIfStudentExist } from "./studentList.js";
 let coursesController=CoursesControllerSingleton.getInstance()
 
 const hoursToConsiderDayOverloaded=3
@@ -126,13 +124,12 @@ function addListenerForfurtherinfo(homworkDiv,homework){
 function showFurtherInformation(homework){
  actualHomework.innerHTML= `Homework : ${homework.name} started on ${homework.dateInit} and you must complete it by ${homework.dateFin}`+", Horas necesarias:  "+homework.hoursNeeded+", Horas por dia:  "+homework.getHoursPerDay();
 }
-function addElementsToFather(Father,...children)
-{
-  for(let index=0;index<children.length;index++)
-  {
-    Father.appendChild(children[index])
+function addElementsToFather(Father, ...children) {
+  for (const child of children) {
+    Father.appendChild(child);
   }
 }
+
 function addPropsToElement(element,props,...innerHTML)
 {
   if(innerHTML[0]!=undefined)

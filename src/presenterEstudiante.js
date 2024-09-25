@@ -238,21 +238,26 @@ function InitializeHoursFeedback(input,button){
   button.style.display="none";
 
 }
-function loadDateContainer(homeworksArray,date)
-{
-  let dateContainer=document.createElement('div');
-  let dateTittleDiv = document.createElement('h3');
-  addPropsToElement(dateContainer,{"id":"divFecha"+date})
-  addPropsToElement(dateTittleDiv,{"id":"divFechaTitle" + date}, date + "==>")
-  addElementsToFather(dateContainer,dateTittleDiv)
-  for(let i=0; i<homeworksArray.length; i++)
-  {
-    addElementsToFather(dateContainer, createHomeworkItem(homeworksArray[i]))
+function loadDateContainer(homeworksArray, date) {
+  let dateContainer = document.createElement('div');
+  let dateTitleDiv = document.createElement('h3');
+  
+  addPropsToElement(dateContainer, { "id": "divFecha" + date });
+  addPropsToElement(dateTitleDiv, { "id": "divFechaTitle" + date }, date + "==>");
+  
+  addElementsToFather(dateContainer, dateTitleDiv);
+  
+  for (const homework of homeworksArray) {
+    addElementsToFather(dateContainer, createHomeworkItem(homework));
   }
-  if(coursesController.getHoursToComplete(homeworksArray)>hoursToConsiderDayOverloaded)
-    dateTittleDiv.style.color="red";
-  return dateContainer
+  
+  if (coursesController.getHoursToComplete(homeworksArray) > hoursToConsiderDayOverloaded) {
+    dateTitleDiv.style.color = "red";
+  }
+  
+  return dateContainer;
 }
+
 
 function createHomeworkItem(homework)
 {

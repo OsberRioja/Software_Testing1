@@ -25,16 +25,17 @@ class CoursesController extends Courses {
         if (status == errorCode.OK) {
             hoursNeeded = parseInt(hoursNeeded);
             let createdHmwk = this.createHomework(hmwkName, dateInit, dateFin, courseName, hoursNeeded, this.homeworkId);
-
+    
             if (createdHmwk != errorCode.CourseNotFound) {
                 this.homeworkId++;
-                return errorCode.OK;
+                return { status: errorCode.OK };
             } else {
-                return errorCode.CourseNotFound;
+                return { status: errorCode.CourseNotFound };
             }
         }
-        return status;
+        return { status: status };
     }
+    
 
     getAllHomeworksByDate(coursesThatStudentsPasses) {
         let CourseNames = this.getCourseNames();

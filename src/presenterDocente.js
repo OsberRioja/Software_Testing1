@@ -62,13 +62,18 @@ createHmwkForm.addEventListener("submit", (event) => {
   const courseName = CourseName.value;
   const dateInit = DateInit.value;
   const dateFin = DateFin.value;
-  const hoursNeeded=HoursNeededHmwk.value
-  let status=coursesController.tryToCreateHomework(hmwkName,dateInit,dateFin,courseName,hoursNeeded)
-  console.log(coursesController.getHomeworkBasedOnId(13));
-  alert(alertMessages[status])
-  if(status==errorCode.OK)
-  {
-    loadListByDates()
+  const hoursNeeded = HoursNeededHmwk.value;
+  
+  let result = coursesController.tryToCreateHomework(hmwkName, dateInit, dateFin, courseName, hoursNeeded);
+  
+  console.log("Resultado de tryToCreateHomework:", result);
+  
+  if (result.status === errorCode.OK) {
+    alert(alertMessages[result.status]);
+    console.log("Tarea creada con ID:", result.homeworkId);
+    loadListByDates();
+  } else {
+    alert(alertMessages[result.status] || "Error desconocido al crear la tarea");
   }
 });
 HomeworkMoficationForm.addEventListener("submit", (event) => {

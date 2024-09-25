@@ -22,18 +22,23 @@ class CoursesController extends Courses {
 
     tryToCreateHomework(hmwkName, dateInit, dateFin, courseName, hoursNeeded) {
         let status = this.#validateHomeworksInput(dateFin, dateInit);
-        if (status == errorCode.OK) {
-            hoursNeeded = parseInt(hoursNeeded);
-            let createdHmwk = this.createHomework(hmwkName, dateInit, dateFin, courseName, hoursNeeded, this.homeworkId);
-    
-            if (createdHmwk != errorCode.CourseNotFound) {
-                this.homeworkId++;
-                return errorCode.OK
-            } else {
-                return errorCode.CourseNotFound
-            }
+        if (status !== errorCode.OK) {
+            return { status };
         }
-        return status
+    
+        hoursNeeded = parseInt(hoursNeeded);
+        let result = this.createHomework(hmwkName, dateInit, dateFin, courseName, hoursNeeded, this.homeworkId);
+    
+        if (result.status === errorCode.OK) {
+            this.homeworkId++;
+            return { 
+                status: errorCode.OK, 
+                homeworkId: this.homeworkId - 1,
+                homework: result.homework 
+            };
+        } else {
+            return { status: result.status };
+        }
     }
     
 

@@ -9,15 +9,21 @@ class Courses{
     {
         this.courses={}
     }
-    createHomework(name,dateInit,dateFin,courseName,hoursNeeded, id)
-    {
-        let task=new Homework(name,dateInit,dateFin,courseName,hoursNeeded, id);
-        if(this.courses[courseName])
-        {
-            this.courses[courseName].addHomework(task)
-            return task.getHomeworkObj()
+    
+    createHomework(name, dateInit, dateFin, courseName, hoursNeeded, id) {
+        if (!this.courses[courseName]) {
+            return {
+                status: errorCode.CourseNotFound
+            };
         }
-        return errorCode.CourseNotFound
+        
+        let task = new Homework(name, dateInit, dateFin, courseName, hoursNeeded, id);
+        this.courses[courseName].addHomework(task);
+        
+        return {
+            status: errorCode.OK,
+            homework: task.getHomeworkObj()
+        };
     }
     getCourseNames()
     {

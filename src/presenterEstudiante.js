@@ -90,11 +90,10 @@ function loadListByDates()
   let dates=Object.keys(HomeworkDatesObj) 
   dates.sort((a, b) => a.localeCompare(b));
   reloadCourseBox();
-  for(let dateIndex=0;dateIndex<dates.length;dateIndex++)
-  {
-    let date=dates[dateIndex]
-    addElementsToFather(homeworkDays,loadDateContainer(HomeworkDatesObj[date],date))
+  for (let date of dates) {
+    addElementsToFather(homeworkDays, loadDateContainer(HomeworkDatesObj[date], date));
   }
+  
 
 }
 courseBox.addEventListener('change', (event) => {

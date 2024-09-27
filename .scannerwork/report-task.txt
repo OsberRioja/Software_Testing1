@@ -1,6 +1,15 @@
 projectKey=SoftwareTestingone
 serverUrl=http://localhost:9000
 serverVersion=10.6.0.92116
+
+dashboardUrl=http://localhost:9000/dashboard?id=proyecto-sonar-2
+ceTaskId=793c988a-2ded-42af-8ee1-e20ab987cc06
+ceTaskUrl=http://localhost:9000/api/ce/task?id=793c988a-2ded-42af-8ee1-e20ab987cc06
+
+
+
+
+
 dashboardUrl=http://localhost:9000/dashboard?id=SoftwareTestingone
 ceTaskId=f45d4aaa-8d0f-4d7b-9c2c-39822aecdc1f
 ceTaskUrl=http://localhost:9000/api/ce/task?id=f45d4aaa-8d0f-4d7b-9c2c-39822aecdc1f

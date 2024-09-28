@@ -88,25 +88,27 @@ function getCoursesFromAllStudentsWithinACourse(courseToCheck)
     return courses
 }
 
-function getStudentsInCourse(courseToCheck)
-{
-    let students = {}
+function getStudentsInCourse(courseToCheck) {
+    let students = {};
     for (const key in studentDict) {
-
-        let courses = studentDict[key].getCoursesStudent()
-        if(courses.has(courseToCheck))
-        {
-            for(let course of courses)
-            {
-                if (!students[course]) {
-                    students[course] = [];
-                    students[course] = 0
-                }
-                students[course] = 1 + parseInt(students[course])
+        let courses = studentDict[key].getCoursesStudent();
+        if (courses.has(courseToCheck)) {
+            if (!students[courseToCheck]) {
+                students[courseToCheck] = 0;
             }
-        } 
+            students[courseToCheck]++;
+            
+            for (let course of courses) {
+                if (course !== courseToCheck) {
+                    if (!students[course]) {
+                        students[course] = 0;
+                    }
+                    students[course]++;
+                }
+            }
+        }
     }
-    return students
+    return students;
 }
 
 export { getCoursesFromAllStudents, getCoursesFromAllStudentsWithinACourse, getStudentName, getStudents, getStudentsFromJson, getStudentsInCourse, seeIfStudentExist, setStudentName, studentLogIn };

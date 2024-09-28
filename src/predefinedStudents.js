@@ -102,7 +102,8 @@ let dictIngSoft = {
         "Rivero Arnez, Christian",
         "Rodriguez Coca, Alejandro Josue",
 	    "Rojas Reque, Kevin Yamil",
-        "Torrico Hinojosa, Santiago Jose"
+        "Torrico Hinojosa, Santiago Jose",
+        "Osber"
     ]
 }
 

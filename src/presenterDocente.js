@@ -1,7 +1,7 @@
-import * as errorCode from './errorCodes'
 import { CoursesControllerSingleton } from "./coursesController";
-import {getCoursesFromAllStudentsWithinACourse, getStudentsInCourse} from "./studentList.js"
-import {getProfessorName} from "./TeacherLoginManager"
+import * as errorCode from './errorCodes';
+import { getCoursesFromAllStudentsWithinACourse, getStudentsInCourse } from "./studentList.js";
+import { getProfessorName } from "./TeacherLoginManager";
 
 let coursesController=CoursesControllerSingleton.getInstance()
 
@@ -190,11 +190,9 @@ function createHomeworkItem(homework)
   return HmwkContainer
 }
 
-function addElementsToFather(Father,...children)
-{
-  for(let index=0;index<children.length;index++)
-  {
-    Father.appendChild(children[index])
+function addElementsToFather(Father, ...children) {
+  for (const child of children) {
+    Father.appendChild(child);
   }
 }
 
@@ -277,4 +275,4 @@ function deleteHomeworkFromHTML(divID)
   selectedHomeworkStats.innerHTML=""
 }
 
-export {loadTeacherViewBaseStatus} 
+export { loadTeacherViewBaseStatus };

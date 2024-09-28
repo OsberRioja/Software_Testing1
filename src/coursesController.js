@@ -88,7 +88,7 @@ class CoursesController extends Courses {
         if (!this.#checkIfDate1IsLowerThan2(today, dateFin)) {
             status = errorCode.DeadlineAlreadyPassed;
         }
-        if (this.#checkIfDate1IsLowerThan2(dateInit, dateFin) == false) {
+        if (!this.#checkIfDate1IsLowerThan2(dateInit, dateFin)) {
             status = errorCode.DeadlineCantBeLowerThanInit;
         }
         return status;

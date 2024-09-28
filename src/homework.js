@@ -17,16 +17,14 @@ class Homework{
     {
         return this.homeworkFeedbacks;
     }
-    sumFeedback()
-    {
-        let total = 0
-        let homeworkFeedback = this.homeworkFeedbacks
-        for(let i=0; i< homeworkFeedback.length; i++)
-        {
-            total = parseInt(homeworkFeedback[i]) + total
+    sumFeedback() {
+        let total = 0;
+        let homeworkFeedback = this.homeworkFeedbacks;
+        for (const feedback of homeworkFeedback) {
+            total += parseInt(feedback);
         }
-        return total/this.homeworkFeedbacks.length
-    }
+        return total / this.homeworkFeedbacks.length;
+    }    
     getHomeworkObj()
     {
         return {

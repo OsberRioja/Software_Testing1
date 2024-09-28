@@ -148,20 +148,18 @@ function loadListByDates() {
   }
 }
 
-function loadDateContainer(homeworksArray,date)
-{
-  let dateContainer=document.createElement('div');
+function loadDateContainer(homeworksArray, date) {
+  let dateContainer = document.createElement('div');
   let dateTittleDiv = document.createElement('h3');
-  addPropsToElement(dateContainer,{"id":"divFechaDocente"+date})
-  addPropsToElement(dateTittleDiv,{"class":"divFecha" + date}, date + "==>")
-  addElementsToFather(dateContainer,dateTittleDiv)
-  for(let i=0; i<homeworksArray.length; i++)
-  {
-    addElementsToFather(dateContainer, createHomeworkItem(homeworksArray[i]))
-    
+  addPropsToElement(dateContainer, {"id": "divFechaDocente" + date});
+  addPropsToElement(dateTittleDiv, {"class": "divFecha" + date}, date + "==>");
+  addElementsToFather(dateContainer, dateTittleDiv);
+  for (const homework of homeworksArray) {
+    addElementsToFather(dateContainer, createHomeworkItem(homework));
   }
-  return dateContainer
+  return dateContainer;
 }
+
 
 function createHomeworkItem(homework)
 {

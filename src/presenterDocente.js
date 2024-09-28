@@ -160,7 +160,6 @@ function loadDateContainer(homeworksArray, date) {
   return dateContainer;
 }
 
-
 function createHomeworkItem(homework)
 {
   let idList = homework.getId().toString();

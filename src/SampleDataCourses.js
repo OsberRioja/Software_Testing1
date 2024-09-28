@@ -1,6 +1,5 @@
 import { CoursesControllerSingleton } from "./coursesController";
 let coursesController=CoursesControllerSingleton.getInstance()
-
 let professorArrayRef=[]
 function loadProfessorCredentials()
 {
@@ -22,10 +21,8 @@ function createPredefinedCourses(coursesControllerRef)
     coursesControllerRef.tryToCreateCourse("ADM-112","ADMINISTRACION II",professorArrayRef[5]);
     coursesControllerRef.tryToCreateCourse("tst-142","test",professorArrayRef[6]);
 }
-
 function createPredefinedHomework(coursesControllerRef)
 {
-    let status = 0
     coursesControllerRef.tryToCreateHomework("PRIMERA EVALUACION","2023-01-01","2023-01-02","ADMINISTRACION II",15)
     coursesControllerRef.tryToCreateHomework("Práctica 1","2023-01-01","2023-01-05","INTERNET DE LAS COSAS",4)
     coursesControllerRef.tryToCreateHomework("Práctica 2","2023-01-01","2023-01-06","INTERNET DE LAS COSAS",2)
@@ -51,5 +48,4 @@ function getGeneratedProfessorArray()
 {
     return professorArrayRef 
 }
-
-export {loadSampleData,getGeneratedProfessorArray}
+export { getGeneratedProfessorArray, loadSampleData };

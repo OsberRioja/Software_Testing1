@@ -117,7 +117,7 @@ noNumberFields.forEach(noNumberField=>
       noNumberField.addEventListener("input", (event) => {
         event.preventDefault();
         let currentLength=String(noNumberField.value).length-1
-        if (isNaN(noNumberField.value[currentLength])==false && noNumberField.value[currentLength]!=" ")
+        if (!isNaN(noNumberField.value[currentLength]) && noNumberField.value[currentLength] != " ")
         {
           noNumberField.value = noNumberField.value.slice(0,currentLength)
         }

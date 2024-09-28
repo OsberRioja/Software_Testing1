@@ -4,13 +4,8 @@ let professorArray = []
 let professorName = ""
 let professordPassword = "123"
 
-function professorLogIn(name, password)
-{
-    if(professorArray.includes(name) && password == professordPassword)
-    {
-        return true
-    }
-    return false
+function professorLogIn(name, password) {
+    return professorArray.includes(name) && password == professordPassword;
 }
 function setProfessorName(name)
 {

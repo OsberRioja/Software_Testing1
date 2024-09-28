@@ -97,11 +97,7 @@ class CoursesController extends Courses {
     #checkIfDate1IsLowerThan2(date1, date2) {
         date1 = new Date(date1);
         date2 = new Date(date2);
-        if (date1 - date2 <= 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return date1 - date2 <= 0;
     }
 }
 

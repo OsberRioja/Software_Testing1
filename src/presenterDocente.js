@@ -143,8 +143,7 @@ function loadListByDates() {
   let dates = Object.keys(HomeworkDatesObj);
   dates.sort((a, b) => a.localeCompare(b));
 
-  for (let dateIndex = 0; dateIndex < dates.length; dateIndex++) {
-    let date = dates[dateIndex];
+  for (const date of dates) {
     addElementsToFather(homeworkList, loadDateContainer(HomeworkDatesObj[date], date));
   }
 }

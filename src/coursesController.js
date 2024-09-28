@@ -85,7 +85,7 @@ class CoursesController extends Courses {
     #validateHomeworksInput(dateFin, dateInit) {
         let status = 0;
         let today = new Date();
-        if (this.#checkIfDate1IsLowerThan2(today, dateFin) == false) {
+        if (!this.#checkIfDate1IsLowerThan2(today, dateFin)) {
             status = errorCode.DeadlineAlreadyPassed;
         }
         if (this.#checkIfDate1IsLowerThan2(dateInit, dateFin) == false) {

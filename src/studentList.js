@@ -92,23 +92,28 @@ function getStudentsInCourse(courseToCheck) {
     let students = {};
     for (const key in studentDict) {
         let courses = studentDict[key].getCoursesStudent();
-        if (courses.has(courseToCheck)) {
-            if (!students[courseToCheck]) {
-                students[courseToCheck] = 0;
-            }
-            students[courseToCheck]++;
-            
-            for (let course of courses) {
-                if (course !== courseToCheck) {
-                    if (!students[course]) {
-                        students[course] = 0;
-                    }
-                    students[course]++;
-                }
-            }
-        }
+        updateStudentCount(students, courses, courseToCheck);
     }
     return students;
 }
 
-export { getCoursesFromAllStudents, getCoursesFromAllStudentsWithinACourse, getStudentName, getStudents, getStudentsFromJson, getStudentsInCourse, seeIfStudentExist, setStudentName, studentLogIn };
+function updateStudentCount(students, courses, courseToCheck) {
+    if (courses.has(courseToCheck)) {
+        incrementStudentCount(students, courseToCheck);
+
+        for (let course of courses) {
+            if (course !== courseToCheck) {
+                incrementStudentCount(students, course);
+            }
+        }
+    }
+}
+
+function incrementStudentCount(students, course) {
+    if (!students[course]) {
+        students[course] = 0;
+    }
+    students[course]++;
+}
+
+export {updateStudentCount, incrementStudentCount, getCoursesFromAllStudents, getCoursesFromAllStudentsWithinACourse, getStudentName, getStudents, getStudentsFromJson, getStudentsInCourse, seeIfStudentExist, setStudentName, studentLogIn };

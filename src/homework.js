@@ -25,17 +25,18 @@ class Homework{
         }
         return total / this.homeworkFeedbacks.length;
     }    
-    getHomeworkObj()
-    {
+    getHomeworkObj() {
+        this.timesCompleted = 0;
         return {
-            name:this.name,
+            name: this.name,
             id: this.id,
-            dateInit:this.dateInit,
-            dateFin:this.dateFin,
-            courseName:this.courseName,
-            timesCompleted:this.timesCompleted=0
-        }
+            dateInit: this.dateInit,
+            dateFin: this.dateFin,
+            courseName: this.courseName,
+            timesCompleted: this.timesCompleted
+        };
     }
+    
     getId()
     {
         return this.id

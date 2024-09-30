@@ -1,15 +1,6 @@
-<<<<<<< HEAD
 projectKey=proyecto-sonar-2
 serverUrl=http://localhost:9000
 serverVersion=10.6.0.92116
 dashboardUrl=http://localhost:9000/dashboard?id=proyecto-sonar-2
-ceTaskId=6bf8db23-ca5d-44c9-8740-18ac655fc36d
-ceTaskUrl=http://localhost:9000/api/ce/task?id=6bf8db23-ca5d-44c9-8740-18ac655fc36d
-=======
-projectKey=Software_Testing
-serverUrl=http://localhost:9000
-serverVersion=10.6.0.92116
-dashboardUrl=http://localhost:9000/dashboard?id=Software_Testing
-ceTaskId=10d3393e-4a94-4d76-ba1d-8b5f952c7799
-ceTaskUrl=http://localhost:9000/api/ce/task?id=10d3393e-4a94-4d76-ba1d-8b5f952c7799
->>>>>>> 05ba9ce4808a21ff92d5a7539d837bb9b44b4ef9
+ceTaskId=aeea56a9-1cc9-4fb8-926a-cb4645bc151f
+ceTaskUrl=http://localhost:9000/api/ce/task?id=aeea56a9-1cc9-4fb8-926a-cb4645bc151f

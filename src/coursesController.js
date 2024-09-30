@@ -72,15 +72,16 @@ class CoursesController extends Courses {
 
     getdaysWithHomework(homeworks) {
         let daysWithHomework = {};
-        for (let j = 0; j < homeworks.length; j++) {
-            if (daysWithHomework[homeworks[j].getDateFin()] == undefined) {
-                daysWithHomework[homeworks[j].getDateFin()] = [homeworks[j]];
+        for (const homework of homeworks) {
+            if (daysWithHomework[homework.getDateFin()] == undefined) {
+                daysWithHomework[homework.getDateFin()] = [homework];
             } else {
-                daysWithHomework[homeworks[j].getDateFin()].push(homeworks[j]);
+                daysWithHomework[homework.getDateFin()].push(homework);
             }
         }
         return daysWithHomework;
     }
+    
 
     #validateHomeworksInput(dateFin, dateInit) {
         let status = 0;

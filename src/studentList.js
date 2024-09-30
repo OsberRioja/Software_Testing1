@@ -12,16 +12,13 @@ function getStudentsFromJson()
 {
     let neoDict = combineDicts()
 
-    for(let pos=0;pos < neoDict.length; pos++)
-    {
-        for(let studentPos=0; studentPos < neoDict[pos]["students"].length; studentPos++)
-        {
-            let student = new Student(neoDict[pos]["students"][studentPos])
+    for (let course of neoDict) {
+        for (let studentData of course.students) {
+            let student = new Student(studentData)
             if (!studentDict[student.getName()]) {
-                studentDict[student.getName()] = [];
                 studentDict[student.getName()] = student
             }
-            studentDict[student.getName()].addCoursesToStudent(neoDict[pos]["course"])
+            studentDict[student.getName()].addCoursesToStudent(course.course)
         }
     }
 }
@@ -96,6 +93,27 @@ function getStudentsInCourse(courseToCheck) {
     }
     return students;
 }
+// function getStudentsInCourse(courseToCheck) {
+//     let students = {};
+    
+//     function incrementCourseCount(course) {
+//         students[course] = (students[course] || 0) + 1;
+//     }
+
+//     for (const student of Object.values(studentDict)) {
+//         let courses = student.getCoursesStudent();
+//         if (courses.has(courseToCheck)) {
+//             incrementCourseCount(courseToCheck);
+//             courses.forEach(course => {
+//                 if (course !== courseToCheck) {
+//                     incrementCourseCount(course);
+//                 }
+//             });
+//         }
+//     }
+
+//     return students;
+// }
 
 function updateStudentCount(students, courses, courseToCheck) {
     if (courses.has(courseToCheck)) {

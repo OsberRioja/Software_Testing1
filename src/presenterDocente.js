@@ -1,7 +1,7 @@
-import * as errorCode from './errorCodes'
 import { CoursesControllerSingleton } from "./coursesController";
-import {getCoursesFromAllStudentsWithinACourse, getStudentsInCourse} from "./studentList.js"
-import {getProfessorName} from "./TeacherLoginManager"
+import * as errorCode from './errorCodes';
+import { getCoursesFromAllStudentsWithinACourse, getStudentsInCourse } from "./studentList.js";
+import { getProfessorName } from "./TeacherLoginManager";
 
 let coursesController=CoursesControllerSingleton.getInstance()
 
@@ -117,7 +117,7 @@ noNumberFields.forEach(noNumberField=>
       noNumberField.addEventListener("input", (event) => {
         event.preventDefault();
         let currentLength=String(noNumberField.value).length-1
-        if (isNaN(noNumberField.value[currentLength])==false && noNumberField.value[currentLength]!=" ")
+        if (!isNaN(noNumberField.value[currentLength]) && noNumberField.value[currentLength] != " ")
         {
           noNumberField.value = noNumberField.value.slice(0,currentLength)
         }
@@ -143,25 +143,21 @@ function loadListByDates() {
   let dates = Object.keys(HomeworkDatesObj);
   dates.sort((a, b) => a.localeCompare(b));
 
-  for (let dateIndex = 0; dateIndex < dates.length; dateIndex++) {
-    let date = dates[dateIndex];
+  for (const date of dates) {
     addElementsToFather(homeworkList, loadDateContainer(HomeworkDatesObj[date], date));
   }
 }
 
-function loadDateContainer(homeworksArray,date)
-{
-  let dateContainer=document.createElement('div');
+function loadDateContainer(homeworksArray, date) {
+  let dateContainer = document.createElement('div');
   let dateTittleDiv = document.createElement('h3');
-  addPropsToElement(dateContainer,{"id":"divFechaDocente"+date})
-  addPropsToElement(dateTittleDiv,{"class":"divFecha" + date}, date + "==>")
-  addElementsToFather(dateContainer,dateTittleDiv)
-  for(let i=0; i<homeworksArray.length; i++)
-  {
-    addElementsToFather(dateContainer, createHomeworkItem(homeworksArray[i]))
-    
+  addPropsToElement(dateContainer, {"id": "divFechaDocente" + date});
+  addPropsToElement(dateTittleDiv, {"class": "divFecha" + date}, date + "==>");
+  addElementsToFather(dateContainer, dateTittleDiv);
+  for (const homework of homeworksArray) {
+    addElementsToFather(dateContainer, createHomeworkItem(homework));
   }
-  return dateContainer
+  return dateContainer;
 }
 
 function createHomeworkItem(homework)
@@ -190,11 +186,9 @@ function createHomeworkItem(homework)
   return HmwkContainer
 }
 
-function addElementsToFather(Father,...children)
-{
-  for(let index=0;index<children.length;index++)
-  {
-    Father.appendChild(children[index])
+function addElementsToFather(Father, ...children) {
+  for (const child of children) {
+    Father.appendChild(child);
   }
 }
 
@@ -277,4 +271,4 @@ function deleteHomeworkFromHTML(divID)
   selectedHomeworkStats.innerHTML=""
 }
 
-export {loadTeacherViewBaseStatus} 
+export { loadTeacherViewBaseStatus };

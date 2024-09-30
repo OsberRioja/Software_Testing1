@@ -17,27 +17,26 @@ class Homework{
     {
         return this.homeworkFeedbacks;
     }
-    sumFeedback()
-    {
-        let total = 0
-        let homeworkFeedback = this.homeworkFeedbacks
-        for(let i=0; i< homeworkFeedback.length; i++)
-        {
-            total = parseInt(homeworkFeedback[i]) + total
+    sumFeedback() {
+        let total = 0;
+        let homeworkFeedback = this.homeworkFeedbacks;
+        for (const feedback of homeworkFeedback) {
+            total += parseInt(feedback);
         }
-        return total/this.homeworkFeedbacks.length
-    }
-    getHomeworkObj()
-    {
+        return total / this.homeworkFeedbacks.length;
+    }    
+    getHomeworkObj() {
+        this.timesCompleted = 0;
         return {
-            name:this.name,
+            name: this.name,
             id: this.id,
-            dateInit:this.dateInit,
-            dateFin:this.dateFin,
-            courseName:this.courseName,
-            timesCompleted:this.timesCompleted=0
-        }
+            dateInit: this.dateInit,
+            dateFin: this.dateFin,
+            courseName: this.courseName,
+            timesCompleted: this.timesCompleted
+        };
     }
+    
     getId()
     {
         return this.id

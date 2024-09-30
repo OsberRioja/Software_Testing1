@@ -93,27 +93,6 @@ function getStudentsInCourse(courseToCheck) {
     }
     return students;
 }
-// function getStudentsInCourse(courseToCheck) {
-//     let students = {};
-    
-//     function incrementCourseCount(course) {
-//         students[course] = (students[course] || 0) + 1;
-//     }
-
-//     for (const student of Object.values(studentDict)) {
-//         let courses = student.getCoursesStudent();
-//         if (courses.has(courseToCheck)) {
-//             incrementCourseCount(courseToCheck);
-//             courses.forEach(course => {
-//                 if (course !== courseToCheck) {
-//                     incrementCourseCount(course);
-//                 }
-//             });
-//         }
-//     }
-
-//     return students;
-// }
 
 function updateStudentCount(students, courses, courseToCheck) {
     if (courses.has(courseToCheck)) {

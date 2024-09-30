@@ -12,16 +12,13 @@ function getStudentsFromJson()
 {
     let neoDict = combineDicts()
 
-    for(let pos=0;pos < neoDict.length; pos++)
-    {
-        for(let studentPos=0; studentPos < neoDict[pos]["students"].length; studentPos++)
-        {
-            let student = new Student(neoDict[pos]["students"][studentPos])
+    for (let course of neoDict) {
+        for (let studentData of course.students) {
+            let student = new Student(studentData)
             if (!studentDict[student.getName()]) {
-                studentDict[student.getName()] = [];
                 studentDict[student.getName()] = student
             }
-            studentDict[student.getName()].addCoursesToStudent(neoDict[pos]["course"])
+            studentDict[student.getName()].addCoursesToStudent(course.course)
         }
     }
 }

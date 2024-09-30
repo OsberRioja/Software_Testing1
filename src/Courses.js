@@ -37,18 +37,16 @@ class Courses{
         }
         return CourseNotFound
     }
-    getHomeworkBasedOnId(id)
-    {
+    getHomeworkBasedOnId(id) {
         for (const courseName in this.courses) {
-            let CourseHomeworks=this.courses[courseName].getHomeworkArray()
-            for(let HomeworkIndex=0; HomeworkIndex<CourseHomeworks.length; HomeworkIndex++)
-            {
-                if(CourseHomeworks[HomeworkIndex].getId() == id)
-                    return CourseHomeworks[HomeworkIndex]
+            let CourseHomeworks = this.courses[courseName].getHomeworkArray();
+            for (const homework of CourseHomeworks) {
+                if (homework.getId() == id)
+                    return homework;
             }
         }
-        return HomeworkNotFound
-    }
+        return HomeworkNotFound;
+    }    
     clearCourseHomeworks(courseName)
     { 
         let status=CourseNotFound
